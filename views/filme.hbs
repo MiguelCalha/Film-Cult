@@ -1,0 +1,98 @@
+<div class="container mt-4">
+    <div class="jumbotron">
+        <h1 class="display-4"> {{filme.nome}} </h1>
+
+        <div class="col-3"><img src="{{filme.imagem}}" /></div>
+        <div class="col-4">
+            <h1>{{filme.nome}}</h1>
+            <h2>Director: {{filme.realizador}}</h2>
+            <h2>Genre: {{filme.genero}}</h1>
+                <h2>{{filme.sobre}}</h1>
+                    <h2>Rating Imdb: {{filme.rating}}</h1>
+                        <h2>Cast: {{filme.elenco}}</h1>
+
+                            <div class="form-group">
+                                <label for="image"> </label>
+                            </div>
+
+        </div>
+    </div>
+</div>
+
+
+<div class="jumbotron">
+    <div class="container mt-4"></div>
+    <iframe width="1280" position=" center" height="720" src="{{filme.trailer}}" frameborder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        allowfullscreen></iframe>
+    </iframe>
+</div>
+
+
+<div class="card-body">
+    <form action="/filmes/addSeen" method="POST">
+        <div class="form-group">
+            <h2>Add to Seen</h2>
+
+
+            <div class="form-group">
+                <input type="hidden" value="{{filme.nome}}" class="form-control" id="nome" name="nome" readonly>
+
+            </div>
+
+             <div class="form-group">
+                <input type="hidden" value="{{filme.imagem}}" class="form-control" id="imagem" name="imagem" readonly>
+            </div>
+
+             <div class="form-group">
+                <input type="hidden" value="{{filme.id_filme}}" class="form-control" id="id_reference" name="id_reference" readonly>
+            </div>
+            
+
+
+            <br>
+            <button type="submit" class="btn btn-primary"> Add to Seen</button>
+    </form>
+</div>
+</div>
+</div>
+</form>
+
+<div class="card-body">
+    <form action="/filmes/addFav" method="POST">
+        <div class="form-group">
+            <h2>Add to Favourites</h2>
+
+            <div class="form-group">
+                <input type="hidden" value="{{filme.nome}}" class="form-control" id="nome" name="nome" readonly>
+            </div>
+
+             <div class="form-group">
+                <input type="hidden" value="{{filme.imagem}}" class="form-control" id="imagem" name="imagem" readonly>
+            </div>
+
+              <div class="form-group">
+                <input type="hidden" value="{{filme.id_filme}}" class="form-control" id="id_reference" name="id_reference" readonly>
+            </div>
+
+            
+
+
+            <br>
+            <button type="submit" class="btn btn-primary"> Add to Favourites</button>
+    </form>
+</div>
+</div>
+</div>
+</form>
+
+<div class="jumbotron">
+    <!-- Partilhar no Twitter -->
+    <h2>Share this movie on social media!</h2>
+    <a href="http://twitter.com/share?url=I recommend {{filme.nome}}! Great Movie. I'm tracking it using FilmCult!"
+        target="_blank">
+        <img src="http://www.simplesharebuttons.com/images/somacro/twitter.png" alt="Twitter" />
+
+
+
+</div>

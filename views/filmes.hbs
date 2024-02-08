@@ -1,0 +1,23 @@
+<div class="container mt-4">
+    <div class="jumbotron">
+
+        <h2>Filmes </h2>
+        <div class="row">
+            {{#each filmes}}
+            <div class="col-3 mb-4 px-2">
+                <div class="card">
+                    <img src="{{imagem}}" class="card-img-top" alt="Thumbnail of {{nome}}" />
+                    <div class="card-body">
+                        <div class="card-title h4"><a href="/filmes/{{id_filme}}">{{nome}}</a></div>
+                        <p class="card-text">{{descricao}}</p>
+                        <div class="float-right">
+                            <div class="float-right">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {{/each}}
+        </div>
+    </div>
+</div>

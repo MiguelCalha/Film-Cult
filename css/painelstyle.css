@@ -1,0 +1,260 @@
+@import url('https://fonts.googleapis.com/css2?family=Prompt:ital,wght@1,300&display=swap');
+
+body{
+    font-family: 'Prompt', sans-serif;
+    margin: 0;
+    padding: 0;
+    font-family: "Roboto", sans-serif;
+    background-color:  #24252A;
+}
+
+header{
+    position: fixed;
+    background-color:  #24252A;
+    padding: 20px;
+    width: 100%;
+    height: 30px; 
+}
+
+.left_area h3{
+    color: darkgrey;
+    margin: 0;
+    text-transform: uppercase;
+    font-size: 22px;
+    font-weight: 900;
+}
+
+.left_area span{
+    color:chartreuse;
+}
+
+.logout_btn{
+    font-family: 'Prompt', sans-serif;
+    padding: 5px;
+    background: darkgray;
+    text-decoration: none;
+    float: right;
+    margin-top: -60px;
+    margin-right: 40px;
+    border-radius: 2px;
+    font-size: 15px;
+    font-weight: 600;
+    color: white;
+    transition: 0.3s;
+    transition-property: all ;
+}
+
+.logout_btn:hover{
+    background: rgba(0,136,169,1);
+}
+
+
+.logo{
+    height: 100px;
+    margin-top: -20px;
+}
+
+.sidebar{
+    background: darkgrey;
+    margin-top: 110px;
+    padding-top: 30px;
+    position: fixed;
+    left: 0;
+    width: 250px;
+    height: 100%;
+    transition: 0.5;
+    transition-property: left ;
+}
+
+.sidebar .profile_pic{
+    width: 100px;
+    height: 100px;
+    margin-left: 65px;
+    border-radius: 100px;
+    margin-bottom: 10px;
+    
+}
+
+.sidebar h4{
+    color: white;
+    display: block;
+    width: 100%;
+    line-height: 60px;
+}
+
+.sidebar a{
+    font-family: 'Prompt', sans-serif;
+    color: white;
+    display: block;
+    width: 100%;
+    line-height: 60px;
+    text-decoration: none;
+    padding-left: 40px;
+    box-sizing: border-box ;
+}
+
+.sidebar a:hover{
+    background: black;
+}
+
+.sidebar i{
+    padding-right: 10px;
+}
+
+label #sidebar_btn{
+    z-index: 1;
+    color: black;
+    position: fixed;
+    cursor: pointer;
+    top: 115px;
+    left: 20px;
+    font-size: 20px;
+    margin: 5px 0;
+    transition: 0.5s;
+    transition-property: color;
+}
+
+label #sidebar_btn:hover{
+    color:chartreuse;
+}
+
+#check:checked ~ .sidebar{
+    left: -190px;
+}
+
+#check:checked ~.sidebar a span{
+    display: none;
+}
+
+#check:checked ~.sidebar a{
+    font-size: 20px;
+    margin-left: 170px;
+    width: 80px;
+}
+
+.content{
+    margin-left: 250px;
+    background-color: black;
+    background-position: center;
+    background-size: cover;
+    height: 100hv;
+}
+
+#check:checked ~.content{
+    margin-left: 60px;
+}
+
+
+#check{
+    display: none;
+}
+
+
+/*FOOTER*/
+
+
+.container{
+    max-width: 1170px;
+    margin: auto;
+
+}
+.row{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+ul{
+    list-style: none;
+}
+
+.footer{
+    background-color: #24252A;
+	padding: 20px 0;
+	position: absolute;
+	margin-top: 50px;
+	bottom: 0;
+	width: 100%;
+}
+
+.footer-col{
+    width: 25%;
+	padding: 0 15px;
+}
+
+.footer-col h4{
+    font-size: 18px;
+    color: #ffffff;
+    text-transform: capitalize;
+    margin-bottom: 35px;
+    font-weight: 500;
+    position: relative;
+}
+
+.footer-col h4::before{
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -10px;
+    background-color: #e91e63;
+    height: 2px;
+    box-sizing: border-box;
+    width: 50px;
+}
+
+.footer-col ul li:not(:last-child){
+    margin-bottom: 10px;
+}
+
+.footer-col ul li a{
+    font-size: 16px;
+    text-transform: capitalize;
+    color: #ffffff;
+    text-decoration: none;
+    font-weight: 300;
+    color: #bbbbbb;
+    display: block;
+    transition: all 0.3s ease;
+
+}
+
+.footer-col ul li a:hover{
+    color: #ffffff;
+    padding-left: 10px;
+}
+
+
+.footer-col .social-links a{
+    display: inline-block;
+    height: 40px;
+    width: 40px;
+    background-color: rgba(255, 255, 255, 0.2); 
+    margin-right:0 10px 10px 0;
+    text-align: center;
+    line-height: 40px;
+    border-radius: 50%;
+    color: #ffffff; 
+    transition: all 0.5s ease;
+}
+
+.footer-col .social-links a:hover{
+    color: #24262b;
+    background-color: #ffffff;
+}
+
+
+/*responsive*/
+
+
+@media(max-width: 767px){
+    .footer-col{
+        width: 50%;
+        margin-bottom: 30px;
+    }
+}
+
+@media(max-width: 574px){
+    .footer-col{
+        width: 100%;
+    }
+}
+		

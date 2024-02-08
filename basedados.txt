@@ -1,0 +1,106 @@
+DROP DATABASE IF EXISTS film_cult;
+
+CREATE DATABASE film_cult;
+
+USE film_cult;
+UPDATE filmes
+SET trailer = 'https://www.youtube.com/embed/qtRKdVHc-cEype'
+WHERE id_filme = 12;
+
+select * from filmes;
+select * from series;
+select * from favoritos;
+
+CREATE TABLE filmes (
+  `id_filme` int NOT NULL AUTO_INCREMENT,
+  `nome` varchar(200) DEFAULT NULL,
+  `genero` varchar(200) DEFAULT NULL,
+  `realizador` varchar(200) DEFAULT NULL,
+  `elenco` varchar(200) DEFAULT NULL,
+  `descricao` varchar(400) DEFAULT NULL,
+`rating` int(2) DEFAULT NULL,
+`imagem` varchar(400) NOT NULL,
+`trailer` varchar(400) NOT NULL,
+  PRIMARY KEY (`id_filme`),
+  UNIQUE KEY `id_UNIQUE` (`id_filme`)
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+CREATE TABLE series (
+  `id_serie` int NOT NULL AUTO_INCREMENT,
+  `nome` varchar(200) DEFAULT NULL,
+  `genero` varchar(200) DEFAULT NULL,
+  `realizador` varchar(200) DEFAULT NULL,
+  `elenco` varchar(200) DEFAULT NULL,
+  `descricao` varchar(400) DEFAULT NULL,
+  `temporadas` int(2) DEFAULT NULL,
+  `episodios` int(4) DEFAULT NULL,
+`imagem` varchar(400) NOT NULL,
+`trailer` varchar(400) NOT NULL,
+  PRIMARY KEY (`id_serie`),
+  UNIQUE KEY `id_UNIQUE` (`id_serie`)
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+CREATE TABLE login (
+  `id_login` int NOT NULL AUTO_INCREMENT,
+  `username` varchar(50) DEFAULT NULL,
+  `email` varchar(50) DEFAULT NULL,
+  `password` varchar(200) DEFAULT NULL,
+  PRIMARY KEY (`id_login`),
+  UNIQUE KEY `id_UNIQUE` (`id_login`)
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+CREATE TABLE favoritos(
+`id_favoritos` int NOT NULL AUTO_INCREMENT,
+`nome`varchar(200) NOT NULL,
+`imagem`varchar(200) NOT NULL,
+`id_reference` varchar(400) not null,
+Primary KEY (`id_favoritos`)
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+
+CREATE TABLE vistos(
+  `id_vistos` int NOT NULL AUTO_INCREMENT,
+  `nome` varchar(200) not null,
+  `imagem` varchar(400) not null,
+   `id_reference` varchar(400) not null,
+  PRIMARY KEY (`id_vistos`),
+  UNIQUE KEY `id_UNIQUE` (`id_vistos`)
+
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+
+
+
+CREATE TABLE temporadas (
+  `id_temporada` int NOT NULL AUTO_INCREMENT,
+  `id_serie` int not null,
+  `nome` varchar(200) DEFAULT NULL,
+  `realizador` varchar(200) DEFAULT NULL,
+  `elenco` varchar(200) DEFAULT NULL,
+  `descricao` varchar(400) DEFAULT NULL,
+  PRIMARY KEY (`id_temporada`),
+  UNIQUE KEY `id_UNIQUE` (`id_temporada`),
+  CONSTRAINT `series2_fk`FOREIGN KEY (`id_serie`)
+	REFERENCES `series`(`id_serie`) 
+	ON DELETE CASCADE
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+
+CREATE TABLE episodios (
+  `id_episodio` int NOT NULL AUTO_INCREMENT,
+  `id_serie` int not null,
+  `id_temporada` int not null,
+  `nome` varchar(200) DEFAULT NULL,
+  `genero` varchar(200) DEFAULT NULL,
+  `realizador` varchar(200) DEFAULT NULL,
+  `elenco` varchar(200) DEFAULT NULL,
+  `descricao` varchar(400) DEFAULT NULL,
+  PRIMARY KEY (`id_episodio`),
+  UNIQUE KEY `id_UNIQUE` (`id_episodio`),
+  CONSTRAINT `series_fk` FOREIGN KEY (`id_serie`)
+	REFERENCES `series`(`id_serie`) 
+	ON DELETE CASCADE,
+	CONSTRAINT `temporadas_fk` FOREIGN KEY (`id_temporada`)
+	REFERENCES `temporadas`(`id_temporada`) 
+	ON DELETE CASCADE
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;

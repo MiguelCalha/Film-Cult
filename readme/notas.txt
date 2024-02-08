@@ -1,0 +1,5 @@
+
+/addShow --> Para adicionar uma série
+/addMovie --> Para adicionar um Filme
+/addEpisode --> Para adicionar um episódio a uma temporada
+/addSeason --> Para adicionar uma temporada a uma série
